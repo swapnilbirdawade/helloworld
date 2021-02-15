@@ -1,0 +1,90 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+	<!-- <H1>ABOUT PAGE</H1> -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 10;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  /*content:"";*/
+      position: center;
+      top:0;
+      right:0;
+      left:0;
+      bottom:0;
+      max-width: 100%;
+}
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #F20C0C;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="{% static '/images/aboutcoffe.mp4' %}" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+  <h1>ABOUT US</h1>
+  <p>WELCOME {{user.username}}.
+  Coffee shop businesses definitely need web presence. With such an effective marketing strategy, it’s a lot easier to promote brand worldwide. Here’s a seamless coffee shop website that will inspire you to make yours extraordinarily. Ceremony Office has a nice, neat and minimalist layout.</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+</body>
+</html>
+
+	
+	
+{% endblock %}	
